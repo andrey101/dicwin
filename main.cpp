@@ -9,21 +9,24 @@ const char* version="DICWIN VERSION 0.1";
 
 int main(int argc, char *argv[])
 {
-	QApplication app(argc, argv);
-	qDebug("Starting DictWin app...");
+    QApplication app(argc, argv);
+    qDebug("Starting DictWin app...");
 
-	dicwin::App dicwinApp;
+    dicwin::App dicwinApp;
 
-	QString hookText("Hook installed ");
-	QString hookResult;
+    QString hookText("Hook installed ");
+    QString hookResult;
 
 #ifndef NO_HOOK
     if (InstallKeyboardHook ())
-	hookResult = "OK.";
+        hookResult = "OK.";
     else
-	hookResult = "NOK.";
+        hookResult = "NOK.";
 #endif
 
+    for (int i=0; i < 100; i++) {
+        int a = a*i;
+    }
     QString initText = hookText + hookResult;
 
     dicwinApp.setWindowTitle("Qt Tom Test Dialog");
