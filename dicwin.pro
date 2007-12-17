@@ -14,7 +14,7 @@ DEPENDPATH += $$INCLUDEPATH
 # Input
 HEADERS += textedit/dicwin.TextEdit.h \
     http/dicwin.HttpRequester.h \
-    khook.h \
+    hook.h \
     dict/dicwin.DictWrapper.h \
     dict/lderrno.h \
     dict/ldservcodes.h \
@@ -31,4 +31,4 @@ SOURCES += textedit/dicwin.TextEdit.cpp \
     dict/libdict.c
 LIBS += -lws2_32 \
     -L'./' \
-    -lkhook
+    -lhook

@@ -20,12 +20,11 @@ void TextEdit::newClipboardText()
 {
     qDebug("TextEdit::newClipboardText() : (%s)", qPrintable(objectName()));
 
-    QString clipText("Clipboard:");
     QString clipContent = m_clipboard->text();
-    QString line = "\n";
     QString dictResult;
 
     if (true) {
+    	
         QString host = "buscon.rae.es";
         QString rest = "/draeI/SrvltGUIBusUsual?TIPO_HTML=2&TIPO_BUS=3&LEMA=";
         rest += clipContent;
@@ -37,18 +36,18 @@ void TextEdit::newClipboardText()
         m_dictWrapper = new dicwin::DictWrapper();
         m_dictWrapper->getWord(clipContent, dictResult);
 
-        setHtml(clipText+clipContent+line+dictResult);
+        setHtml(dictResult);
         QSize s = document()->documentLayout()->documentSize().toSize();
         resize(s);
-        show();
     }
 }
 
 void TextEdit::print()
 {
-    QString text = m_httpRequester.getResult();
-    clear();
-    setHtml(text);
+    QString httpResult = m_httpRequester.getResult();
+    this->clear();
+    this->show();
+    this->setHtml(httpResult);
     QSize s = document()->documentLayout()->documentSize().toSize();
-    resize(s);
+    this->resize(s);
 }
