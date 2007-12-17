@@ -15,8 +15,8 @@ void HttpRequester::setURL(const QString& host, const QString& rest)
 
 void HttpRequester::doGet()
 {
+	a_result.clear();
     connect( this, SIGNAL(readyRead(const QHttpResponseHeader &)), this, SLOT(getResponse()));
-
     connect( this, SIGNAL(done(bool)), m_textedit, SLOT(print()));
 
     QString str("GET ");
