@@ -3,16 +3,18 @@
 
 #include "khook.h"
 #include "windows.h"
-#include "dicwin.App.h"
+#include "dicwin.TextEdit.h"
 
-const char* version="DICWIN VERSION 0.1";
+const char* version="DICWIN VERSION 0.2";
 
 int main(int argc, char *argv[])
 {
+    using namespace dicwin;
+    
     QApplication app(argc, argv);
     qDebug("Starting DictWin app...");
 
-    dicwin::App dicwinApp;
+    TextEdit textedit;
 
     QString hookText("Hook installed ");
     QString hookResult;
@@ -24,15 +26,16 @@ int main(int argc, char *argv[])
         hookResult = "NOK.";
 #endif
 
-    for (int i=0; i < 100; i++) {
-        int a = a*i;
-    }
     QString initText = hookText + hookResult;
 
-    dicwinApp.setWindowTitle("Qt Tom Test Dialog");
-    dicwinApp.setGeometry(20, 30, 200, 60);
-    dicwinApp.setText(initText);
-    dicwinApp.show();
+    Qt::WindowFlags flags = Qt::Drawer;
+    textedit.setWindowFlags(flags);
+    
+    textedit.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    textedit.setReadOnly(true);
+    textedit.setWindowTitle("Dicwin 1.0");
+    textedit.setText(initText);
+    textedit.show();
 
     app.exec();
     return 0;
