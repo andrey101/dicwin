@@ -6,27 +6,9 @@
 #include "windows.h"
 #include "dicwin.TextEdit.h"
 
-const char* version="DICWIN VERSION 0.3";
+const char* version="DICWIN VERSION 0.4";
 
 using namespace dicwin;
-
-//class Preview : public QWidget
-//{
-//public:
-//	Preview(TextEdit* t) : QWidget(), textedit(t) 
-//	{
-//	    //textedit.setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-//	    textedit->setReadOnly(true);
-//	    
-//	    QVBoxLayout *layout = new QVBoxLayout;
-//	    layout->addWidget(textedit);
-//	    setLayout(layout);
-//	    setWindowTitle("Dicwin 1.0");
-//	};
-//	
-//private:
-//	TextEdit* textedit; 
-//};
 
 int main(int argc, char *argv[])
 {
@@ -45,17 +27,14 @@ int main(int argc, char *argv[])
     QString initText = hookText + hookResult;
 
     Qt::WindowFlags flags = Qt::Window;
-    //flags |= Qt::FramelessWindowHint;
+    //flags |= Qt::WindowTitleHint;
     
     TextEdit* textedit = new TextEdit();
     textedit->setReadOnly(true);
+    //textedit->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);    
     textedit->setWindowTitle("Dicwin 1.0");
     textedit->setWindowFlags(flags);
-    textedit->show();
-    
-//    Preview preview(textEdit);
-//    preview.setWindowFlags(flags);
-//    preview.show();
+    //textedit->show();
 
     app.exec();
     return 0;
