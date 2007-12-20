@@ -6,6 +6,9 @@
 #include "dicwin.HttpRequester.h"
 
 class QClipboard;
+class QSystemTrayIcon;
+class QMenu;
+class QAction;
 
 namespace dicwin {
 
@@ -26,6 +29,15 @@ private:
     QClipboard* m_clipboard;
     DictWrapper* m_dictWrapper;
     HttpRequester m_httpRequester;
+    
+    QSystemTrayIcon* m_trayIcon;
+    QMenu* m_trayIconMenu;
+    QAction* m_showAction;
+    QAction* m_hideAction;
+    QAction* m_quitAction;
+    
+    void createTrayActions();
+    void createTrayIcon();
     void getWord(QString& qword, QString& result);
 };
 }
