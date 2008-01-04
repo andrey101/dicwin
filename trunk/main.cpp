@@ -1,12 +1,12 @@
 #include <QApplication>
 #include <QtDebug>
 #include <QVBoxLayout>
+#include <QIcon>
 
 #include "hook.h"
-#include "windows.h"
 #include "dicwin.TextEdit.h"
 
-const char* version="DICWIN VERSION 0.4";
+const char* version="DICWIN VERSION 0.5";
 
 using namespace dicwin;
 
@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
     textedit->setWindowTitle("Dicwin 1.0");
     textedit->setWindowFlags(flags);
     //textedit->show();
-
+    
+    QApplication::setWindowIcon(QIcon("./images/heart.svg"));
     app.exec();
     return 0;
 }

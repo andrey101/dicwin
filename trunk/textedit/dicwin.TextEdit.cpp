@@ -16,7 +16,7 @@ TextEdit::TextEdit(QWidget *parent) :
 {
     qDebug("TextEdit::TextEdit()");
     m_clipboard = QApplication::clipboard();
-    connect(m_clipboard, SIGNAL(dataChanged()), this, SLOT(newClipboardText()));
+    connect(m_clipboard, SIGNAL(dataChanged()), this, SLOT(capturedText()));
     
     createTrayActions();
     createTrayIcon();
@@ -54,7 +54,7 @@ void TextEdit::createTrayIcon()
     m_trayIcon->setContextMenu(m_trayIconMenu);
 }
 
-void TextEdit::newClipboardText()
+void TextEdit::capturedText()
 {
     qDebug("TextEdit::newClipboardText()");
 

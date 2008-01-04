@@ -1,5 +1,5 @@
-#ifndef TEXTEDIT_H_
-#define TEXTEDIT_H_
+#ifndef DICWIN_TEXTEDIT_H_
+#define DICWIN_TEXTEDIT_H_
 
 #include <QTextEdit>
 #include "dicwin.DictWrapper.h"
@@ -22,7 +22,7 @@ public:
     TextEdit(QWidget *parent = 0);
 
 public slots:
-    void newClipboardText();
+    void capturedText();
     void print();
 
 private:
