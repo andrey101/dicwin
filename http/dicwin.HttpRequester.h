@@ -1,5 +1,5 @@
-#ifndef HTTPREQUESTER_H_
-#define HTTPREQUESTER_H_
+#ifndef DICWIN_HTTPREQUESTER_H_
+#define DICWIN_HTTPREQUESTER_H_
 
 #include <QHttp>
 #include <QString>
@@ -14,7 +14,7 @@ class HttpRequester : public QHttp
 
 public:
 	HttpRequester(TextEdit* textedit) : QHttp(), m_textedit(textedit)
-	{ qDebug("HttpRequester::HttpRequester()"); }
+		{ qDebug("HttpRequester::HttpRequester()"); }
     void setURL(const QString& host, const QString& rest);
     void doGet();
     QString getResult() { return m_result; }
@@ -29,4 +29,4 @@ private:
    TextEdit* m_textedit;
 };
 }
-#endif /*HTTPREQUESTER_H_*/
+#endif /*DICWIN_HTTPREQUESTER_H_*/
